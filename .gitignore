@@ -1,0 +1,9 @@
+*.o
+*.d
+*.*project
+*.swp
+*.*.swp
+meabo.aarch64*
+meabo.x86_64*
+meabo.armv7*
+meabo.default
