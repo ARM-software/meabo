@@ -1,0 +1,17 @@
+
+# To enable/disable PAPI, please set the #define ENABLE_PAPI appropriately in meabo.h
+PAPI_INC_PATH = 				# Please set this appropriately 
+PAPI_LIB_PATH = 
+PAPI_LIB = #-lpapi
+
+OMP_INC = -fopenmp
+OMP_LIB = -lgomp
+
+#CC = aarch64-linux-gnu-gcc     # you can use this when cross-compiling
+CC = gcc
+
+CFLAGS = $(PAPI_INC_PATH) $(OMP_INC) -g -std=c99  -O0 -Wall -fmessage-length=0 -frecord-gcc-switches 
+LDFLAGS = $(PAPI_LIB_PATH) $(PFM_LIB_PATH)
+LIBS = $(OMP_LIB) $(PAPI_LIB) $(PFM_LIB) -lm -lrt
+
+MEABO_EXE=meabo.aarch64-debug
