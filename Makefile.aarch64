@@ -10,7 +10,7 @@ OMP_LIB = -lgomp
 #CC = aarch64-linux-gnu-gcc     # you can use this when cross-compiling
 CC = gcc    
 
-CFLAGS = $(PAPI_INC_PATH) $(OMP_INC) -std=c99  -O3 -ffast-math -funroll-loops -ftree-vectorize -march=armv8-a+fp+simd  -mcpu=cortex-a57  -mtune=cortex-a57 -Wall -fmessage-length=0 -frecord-gcc-switches 
+CFLAGS = $(PAPI_INC_PATH) $(OMP_INC) -std=c99  -O3 -ffast-math -funroll-loops -ftree-vectorize -march=armv8-a+fp+simd  -mcpu=cortex-a57  -mtune=cortex-a57 -Wall -fmessage-length=0 -frecord-gcc-switches -MMD
 LDFLAGS = $(PAPI_LIB_PATH) $(PFM_LIB_PATH)
 LIBS = $(OMP_LIB) $(PAPI_LIB) $(PFM_LIB) -lm -lrt
 
