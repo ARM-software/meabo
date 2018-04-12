@@ -19,7 +19,6 @@
  */
 
 #include "compute_kernels.h"
-
 void phase1_compute(const int num_iterations, const int array_size,
     const int block_size, register double temp1, register double temp2,
     register double temp3, register int int_temp1, register int int_temp2,
@@ -820,7 +819,11 @@ void phase10_compute(const int num_iterations, int num_randomloc,
     }
 #endif
 
+#ifdef _OPENMP
     seed = omp_get_thread_num();
+#else
+    seed = rand();
+#endif
     #pragma omp for
     for (unsigned long iter = 0; iter < num_iterations * num_randomloc; ++iter) {
       index = rand_r(&seed) % num_randomloc;
